@@ -1,6 +1,6 @@
 VENV = venv
 
-.PHONY: setup activate clean compile install format check-format check-types lint
+.PHONY: setup activate clean compile install format check-format check-types lint test
 
 setup:
 	@echo "Creating virtual environment..."
@@ -36,6 +36,9 @@ check-types:
 
 lint: check-format check-types
 	@echo "Linting passed!"
+
+test:
+	$(VENV)/bin/pytest
 
 clean:
 	rm -rf $(VENV)

@@ -1,5 +1,4 @@
 # Tests for the day solution
-import pytest
 from common.utils import read_input
 from .solution import solve
 
@@ -24,6 +23,4 @@ To find the total distance between the left list and the right list, add up the 
 
 
 def test_solve():
-    assert (
-        solve(read_input("test_input.txt")) == "Test data here"
-    )  # Replace with expected result
+    assert solve(read_input("test_input.txt")) == 11  # Replace with expected result
