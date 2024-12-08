@@ -10,9 +10,6 @@ def parse_input(input: str):
         left_column.append(left)
         right_column.append(right)
 
-    left_column.sort()
-    right_column.sort()
-
     return left_column, right_column
 
 
@@ -24,6 +21,9 @@ def part_1(input: str):
     left_column, right_column = parse_input(input)
     difference = 0
 
+    left_column.sort()
+    right_column.sort()
+
     for index in range(len(left_column)):
         left = left_column[index]
         right = right_column[index]
@@ -33,7 +33,15 @@ def part_1(input: str):
 
 
 def part_2(input: str):
-    pass
+    left_column, right_column = parse_input(input)
+    score = 0
+
+    for index in range(len(left_column)):
+        id = left_column[index]
+        appearances = right_column.count(id)
+        score += id * appearances
+
+    return score
 
 
 def solve(input: str, part: int):
