@@ -1,6 +1,7 @@
 import os
 import inspect
 
+
 def read_input(file_path="input.txt"):
     """
     Reads the content of the given input file.
@@ -12,7 +13,11 @@ def read_input(file_path="input.txt"):
     caller_dir = os.path.dirname(os.path.abspath(caller_file))
 
     # Resolve the full path
-    full_path = os.path.join(caller_dir, file_path) if not os.path.isabs(file_path) else file_path
+    full_path = (
+        os.path.join(caller_dir, file_path)
+        if not os.path.isabs(file_path)
+        else file_path
+    )
 
     with open(full_path, "r") as f:
         return f.read().strip()

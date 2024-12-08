@@ -22,5 +22,8 @@ Finally, the largest number in the left list is 4, while the largest number in t
 To find the total distance between the left list and the right list, add up the distances between all of the pairs you found. In the example above, this is 2 + 1 + 0 + 1 + 2 + 5, a total distance of 11!
 """
 
+
 def test_solve():
-    assert solve(read_input("test_input.txt")) == 'Test data here'  # Replace with expected result
+    assert (
+        solve(read_input("test_input.txt")) == "Test data here"
+    )  # Replace with expected result
