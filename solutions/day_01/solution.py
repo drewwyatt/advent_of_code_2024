@@ -1,6 +1,3 @@
-from common.utils import read_input
-
-
 def parse_input(input: str):
     left_column: list[int] = []
     right_column: list[int] = []
