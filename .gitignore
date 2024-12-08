@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+*.venv
+
+# Test output
+.pytest_cache/
+coverage/
+*.cover
+*.coverage
+nosetests.xml
+coverage.xml
+*.log
+
+# macOS-specific
+.DS_Store
+
+# Editor-specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.un~
+
+# Dependency management
+pip-wheel-metadata/
+*.lock
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*.swp
+*.log
+*.cache
+
+# Files created by tools
+*.pylint
+.mypy_cache/
+.mypy/
+.flake8
+coverage/
+
+# Output from pip-tools
