@@ -19,10 +19,13 @@ install: setup compile
 	$(VENV)/bin/pip install -r requirements.txt
 
 solution:
-	@if [ -z "$(word 2,$(MAKECMDGOALS))" ]; then \
-		echo "Usage: make run-solution <day_number>"; \
+	@if [ -z "$(day)" ]; then \
+		echo "Usage: make solution day=<day_number> [part=<part_number>]"; \
+		exit 1; \
+	elif [ -z "$(part)" ]; then \
+		python main.py $(day); \
 	else \
-		python main.py $(word 2,$(MAKECMDGOALS)); \
+		python main.py $(day) $(part); \
 	fi
 
 format:
@@ -43,6 +46,3 @@ test:
 clean:
 	rm -rf $(VENV)
 
-# Ignore positional arguments as Makefile targets
-%:
-	@:

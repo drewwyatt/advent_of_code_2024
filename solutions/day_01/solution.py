@@ -20,7 +20,7 @@ def get_difference(left: int, right: int):
     return left - right if left > right else right - left
 
 
-def solve(input: str):
+def part_1(input: str):
     left_column, right_column = parse_input(input)
     difference = 0
 
@@ -32,5 +32,9 @@ def solve(input: str):
     return difference
 
 
-if __name__ == "__main__":
-    print(solve(read_input()))
+def part_2(input: str):
+    pass
+
+
+def solve(input: str, part: int):
+    return part_1(input) if part == 1 else part_2(input)

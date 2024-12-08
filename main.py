@@ -1,8 +1,9 @@
 import importlib
 import sys
+from typing import Optional
 
 
-def run_solution(day):
+def run_solution(day: int, part: Optional[int] = None):
     try:
         # Dynamically import the solution module for the given day
         module_name = f"solutions.day_{day:02d}.solution"
@@ -13,8 +14,15 @@ def run_solution(day):
             from common.utils import read_input
 
             input_data = read_input(f"solutions/day_{day:02d}/input.txt")
-            result = solution_module.solve(input_data)
-            print(f"Day {day} Solution: {result}")
+
+            if part:
+                result = solution_module.solve(input_data, part=part)
+                print(f"Day {day} Part {part} Solution: {result}")
+            else:
+                result1 = solution_module.solve(input_data, part=1)
+                result2 = solution_module.solve(input_data, part=2)
+                print(f"Day {day} Part 1 Solution: {result1}")
+                print(f"Day {day} Part 2 Solution: {result2}")
         else:
             print(f"No `solve` function found in {module_name}")
     except ModuleNotFoundError:
@@ -25,10 +33,11 @@ def run_solution(day):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python main.py <day>")
+        print("Usage: python main.py <day> [<part>]")
     else:
         try:
             day = int(sys.argv[1])
-            run_solution(day)
+            part = int(sys.argv[2]) if len(sys.argv) > 2 else None
+            run_solution(day, part)
         except ValueError:
-            print("Invalid day. Please provide a numeric day.")
+            print("Invalid arguments. Please provide numeric day and part values.")
