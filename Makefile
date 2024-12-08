@@ -1,6 +1,6 @@
 VENV = venv
 
-.PHONY: setup activate clean compile install
+.PHONY: setup activate clean compile install solution
 
 setup:
 	@echo "Creating virtual environment..."
@@ -18,5 +18,16 @@ compile:
 install: setup compile
 	$(VENV)/bin/pip install -r requirements.txt
 
+solution:
+	@if [ -z "$(word 2,$(MAKECMDGOALS))" ]; then \
+		echo "Usage: make run-solution <day_number>"; \
+	else \
+		python main.py $(word 2,$(MAKECMDGOALS)); \
+	fi
+
 clean:
 	rm -rf $(VENV)
+
+# Ignore positional arguments as Makefile targets
+%:
+	@:
