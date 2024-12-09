@@ -41,7 +41,7 @@ lint: check-format check-types
 	@echo "Linting passed!"
 
 test:
-	$(VENV)/bin/pytest
+	$(VENV)/bin/pytest solutions/
 
 new-day:
 	@read -p "Enter day number (e.g., 3 or 03): " day && \
