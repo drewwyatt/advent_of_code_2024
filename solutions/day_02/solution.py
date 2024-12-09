@@ -1,5 +1,14 @@
+from .report import Report
+
+
 def part_1(input: str):
-    pass
+    reports = Report.from_input(input)
+    safe_reports = 0
+    for report in reports:
+        if report.get_is_safe():
+            safe_reports += 1
+
+    return safe_reports
 
 
 def part_2(input: str):

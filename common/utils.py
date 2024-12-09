@@ -2,7 +2,7 @@ import os
 import inspect
 
 
-def read_input(file_path="input.txt"):
+def read_input(file_path: str = "input.txt"):
     """
     Reads the content of the given input file.
     If the file_path is relative, it resolves it relative to the calling script's directory.
