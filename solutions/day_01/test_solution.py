@@ -38,8 +38,8 @@ So, for these example lists, the similarity score at the end of this process is 
 
 
 def test_part_1():
-    assert part_1(read_input("test_input.txt")) == 11  # Replace with expected result
+    assert part_1(read_input("test_input.txt")) == 11
 
 
 def test_part_2():
-    assert part_2(read_input("test_input.txt")) == 31  # Replace with expected result
+    assert part_2(read_input("test_input.txt")) == 31

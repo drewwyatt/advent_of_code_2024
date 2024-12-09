@@ -1,6 +1,6 @@
 VENV = venv
 
-.PHONY: setup activate clean compile install format check-format check-types lint test
+.PHONY: setup activate clean compile install format check-format check-types lint test new-day
 
 setup:
 	@echo "Creating virtual environment..."
@@ -42,6 +42,11 @@ lint: check-format check-types
 
 test:
 	$(VENV)/bin/pytest
+
+new-day:
+	@read -p "Enter day number (e.g., 3 or 03): " day && \
+	day_formatted=$$(printf "%02d" $$day) && \
+	cookiecutter $(PWD)/templates/day_template --no-input day_name=day_$$day_formatted --output-dir solutions
 
 clean:
 	rm -rf $(VENV)
